@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        /*선택자에 아무것도 안붙이면, 문서내의 태그를 의미하는 것임*/
+        #container{
+            width: 1200px;
+            height: 922px;
+            background-color: yellow;
+            position: relative;
+        }
+        #layer{
+            background-color: black;
+            width: 1200px;
+            height: 922px;
+            opacity: 0.6;
+            position: absolute; /*같은 부모요소안에서 서로 상대방의 위치에
+            상관없이 겹침을 허용하는 절대 위치의 배치방법*/
+            /* position: relative;같은 부모안에 요소들간 서로 상대방의 위치에 
+            따라 영향을 받는 배치방법, 즉 다른요소가 머저있을경우 나는 위치가
+            밀리게 됨 ...html default 배치 */
+        }
+        #room{
+            position: absolute;
+        }
+        
+        /* 자식요소에 포지션을 적용할 경우, 반드시 부모요소에는 포지션이 명시되어 있어야한다! */
+    </style>
+    <script>
+        // 방에 불이 켜있으면, 끄고, 꺼있으면 켜자!!
+        // 문서내의 layer라는 아이디를 갖는 요소의 opacity 스타일 속성을 
+        // 투명(켜는효과)하게 하거나 불투명(끄느효과)하게하자
+        var flag= false; // 논리값을 다루는 변수
+       function turn(){
+          var layer =  document.getElementById("layer");
+           if(flag) {
+                layer.style.opacity = 0.6;
+
+            }
+           else {
+                layer.style.opacity = 0;
+            }
+       
+            // var op = flag ? 0.6 : 0;
+            // layer.style.opacity =op;
+            var bt = document.getElementById("bt");
+            var off = bt.src="../images/light/switch_off.png";
+            var on = bt.src="../images/light/switch_on.png";
+            var path =flag? switch_off.png" : images/light/switch_on.png";
+            bt.src="../images/light/"+path;
+          
+           
+                 flag = !flag;      //   삼항 연산자한테 맡겨보자!! (흑백논리인 경우 유용하기 때문에.)
+
+        }
+    </script>
+</head>
+<body>
+    <img id="bt" src="../images/light/switch_off.png" onclick="turn()"/>
+    <div id ="container">
+        <img  id = "room" src="../images/light/room.jpg"/>
+        <div id ="layer"></div>
+    </div>
+</body>
+</html>

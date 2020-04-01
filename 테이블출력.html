@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <style></style>
+    <script>
+        // document.write("철수가 \"안녕\" 이라고 말햇다")
+        // escape문자
+       var f = prompt("원하는 층수를 입력하세요");
+       var ho = prompt("원하는 호수를 입력하세요");
+
+        document.write("<table width =\"300px\" border=\"1px\" >");
+            var n=1;
+        for(var i=0; i<f; i++){
+            document.write("<tr>");
+                 for(var j=1; j<=ho; j++){
+                   document.write("<td>10"+n+"호</td>");
+                      n++;
+        }
+            document.write("</tr>");
+        }
+        
+         document.write("</table>");
+
+    </script>
+</head>
+<body>
+   
+    <!-- <table width ="300px" border ="1px">
+        <tr>
+            <td>201호</td>
+            <td>202호</td>
+            <td>203호</td>
+        </tr>
+        <tr>
+            <td>101호</td>
+            <td>102호</td>
+            <td>103호</td>
+        </tr>
+    </table> -->
+
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<head</head>
+<style>
+#pic{
+    position:absolute;
+    left: 0px;
+    top: 150px;
+}
+</style>
+<script>
+    var x=0;
+    var y=0;
+    flag = true;
+    function move(){
+        var  pic = document.getElementById("pic");
+        var info = document.getElementById("info");
+
+        //if문사용
+
+        // if(x<200){      
+        //     x+=2;
+        //     y+=2;
+        //     pic.style.left = x+"px";
+        //     info.value=x;
+        // }
+
+        // else if(y>0){
+        //     y-=2;
+        //      pic.style.left = y+"px";
+        //     info.value=y;
+        // }
+
+        // else if(y==0){
+        //     x=0;
+        // }
+            
+        // 삼항 연산자 사용
+
+        if(flag){
+            x+=2;
+            if(x>=200){
+                flag = false;             
+            }
+        }
+           
+        flag ? pic.style.left = x+"px" : pic.style.left = (x-=2)+"px";
+
+        if(x==0){
+            flag = !flag;
+        }
+        
+        info.value=x;
+    }
+
+    function auto(){
+        setInterval("move()",10);
+    }
+
+</script>
+<body>
+<button onclick="move()">수동</button>
+<button onclick="auto()">자동</button>
+<input id="info" type="submit" value="0">
+<img id="pic" src="../images/pi.png" width="50px">
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head></head>
+<style>
+    #pic{
+        position: absolute; /*다른 요소들에 영향을 받지 않고 무조건 지정한 위치에 
+        중첩이가능한 배치방법*/
+        left: 0px;
+        top: 150px;
+    }
+</style>
+<script>
+    // 피카츄를 움직이되, 특정 위치(x값이 200)에 도달하면 다시 돌아오게..
+    // 돌아오다가, 원위치(left : 0)이면 다시 목표지점을 향해 가도록 처리
+    var x =0;
+    var y=0;
+    function move(){
+       
+            if(x<200){
+                var pic = document.getElementById("pic");
+                x+=2;
+                y+=2;
+                document.getElementById("info").value=x;
+                pic.style.left = x+"px";
+            }
+            else if(y>0){
+                y-=2;
+                var pic = document.getElementById("pic");
+                document.getElementById("info").value=y;
+                pic.style.left = y+"px";
+            }
+            else if(y==0){
+                x=0;
+            }
+    }
+    function auto(){
+        setInterval("move()",100);
+    }
+      
+    
+    
+</script>
+<body>
+    <button onclick="move()">수동</button>
+    <button onclick="auto()">자동</button>
+    <input id="info" type="text" value="0"/>
+
+    <img id="pic" src="../images/pi.png" width="50px"/>
+</body>
+</html>

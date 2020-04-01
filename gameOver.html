@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<head>
+    <style>
+        body{
+            text-align: center;
+            font-size: 40pt;
+            color:#FFFFFF;
+            background-color: black;
+        }
+        h1{
+            display: block; /*block보이기 none 안보이기*/
+        }
+    </style>
+    <script>
+        var flag = true; //보일지 안보일지를 결정하는 논리값 변수!!
+        // 프로그래밍시 개발자가 다루어야 할 데이터의 유형이 흑백논리라면
+        // 논리값을 사용 하는게 효율성이 있다!
+        function init(){
+            var msg =  document.getElementById("msg");
+            // 깜빡이게..
+            if(flag){
+                msg.style.display="none";
+
+            }
+            else{
+                msg.style.display="block";
+
+            }
+            flag = !flag;
+            setTimeout("init()",500); //지정한 함수를 단 한번만 호출!!
+            // setTimeout 은 비록 한번만 동작하는 함수이지만, 이코드에서
+            // init안에 넣어두었으므로, 반복 호출하는 효과가 난다..
+            // 재귀호출이라 한다
+            
+          
+
+        }
+   
+    </script>
+
+</head>
+<!-- onload는 이벤트 핸들러 중, 문서가 모두 읽혀졌을때 동작하는
+    이벤트 헨들러이다!!! -->
+<body onload="init()"> 
+    <h1 id ="msg">GameOver</h1>
+    
+</body>
+</html>
